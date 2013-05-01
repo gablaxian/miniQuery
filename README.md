@@ -9,6 +9,7 @@ So, if you have several elements each with a class of 'list-item', then you will
 Works just like jQuery, but with far fewer functions:
 
 $2('.list-item').addClass('my-class');
+
 $2('.popup').style('display', 'hidden');
 
 ## API
@@ -16,5 +17,7 @@ $2('.popup').style('display', 'hidden');
 Just the 4 functions at the moment.
 
 style(property, value)
+
 addClass(classname)
+
 removeClass(classname)
