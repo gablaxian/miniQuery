@@ -1,23 +1,66 @@
-miniQuery
-=========
+# miniQuery
+==========
 
-A super small, super lean querying framework, similar to jQuery, but far more restrictive as it only returns one element and _technically_ only supports classes.
-So, if you have several elements each with a class of 'list-item', then you will only get the first element with that className.
+A super small, super lean querying framework, similar to jQuery, but with far fewer functions, error checking and browser support.
+
+Much like jQuery, when called, it returns an object which behaves like an array. So you can call it on an element and either then call one of the public methods, or instead, access the array directly and return the HTMLElement for direct JS manipulation.
 
 ## Usage
 
-Works just like jQuery, but with far fewer functions:
+### each()
 
-$2('.list-item').addClass('my-class');
+```
+_('.list-items').each(function() {
+  // stuff here
+});
+```
 
-$2('.popup').style('display', 'hidden');
+### get()
 
-## API
+Just a cleaner way to perform:
 
-Just the 4 functions at the moment.
+```
+_('.list-items')[idx]
 
-style(property, value)
+e.g.
 
-addClass(classname)
+_('.list-items').get(idx)
+```
 
-removeClass(classname)
+If no index is supplied it defaults to 0;
+
+### css(property, value)
+
+*only works on the first element in the array*
+
+```
+_('.list-items').css('display', 'none');
+```
+
+### addClass(classname)
+
+Adds a single class to a single or array of elements
+
+```
+_('.list-items').addClass('show');
+```
+
+### removeClass(classname)
+
+Removes a single class to a single or array of elements
+
+```
+_('.list-items').removeClass('show');
+```
+
+### offset
+
+*only works on the first element in the array*
+
+Works the same as in jQuery
+
+```
+_('.list-items').offset(); \\ returns { top: value, left: value }
+
+_('.list-items').offset().top;
+```
